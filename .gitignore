@@ -1,0 +1,4 @@
+venv_ia
+/log/app.log
+logs/*
+__pycache__/
