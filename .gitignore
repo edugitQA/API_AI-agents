@@ -2,3 +2,4 @@ venv_ia
 /log/app.log
 logs/*
 __pycache__/
+.env
