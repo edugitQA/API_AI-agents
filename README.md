@@ -71,8 +71,8 @@ python main.py
 ```
 
 Acesse os endpoints:
-- Endpoint raiz: [http://localhost:8005/](http://localhost:8005/)
-- Health Check: [http://localhost:8005/health](http://localhost:8005/health)
+- Endpoint raiz: [http://localhost:8000/](http://localhost:8000/)
+- Health Check: [http://localhost:8000/health](http://localhost:8000/health)
 
 ## Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.

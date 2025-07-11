@@ -22,6 +22,8 @@ app = FastAPI(
     version="1.0.1"
 )
 
+app.include_router(router)
+
 @app.get("/")
 async def root():
     """Rota raiz com as info da API"""
@@ -41,12 +43,11 @@ async def health_check():
     return {"status": "healthy", "version": "1.0.1"}
 
 
-
 if __name__ == "__main__":
     logger.info(f"Iniciando servidor em {settings.API_HOST}:{settings.API_PORT}")
     uvicorn.run(
         "main:app",
         host=settings.API_HOST,
-        port=int(settings.API_PORT),  # Convertendo para inteiro
+        port=int(settings.API_PORT),  # conversão aqui
         reload=True
     )

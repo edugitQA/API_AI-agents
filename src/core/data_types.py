@@ -1,14 +1,14 @@
 #tipos de dados e modelos de para IA
-from typing import List, Dict, Optional, Union, Any
+from typing import List, Annotated, Optional, Union, Any
 from pydantic import BaseModel, Field, field_validator
 from datetime import datetime
 from enum import Enum
 
 class ModelType (str, Enum):
     """Enum para modelos de llm"""
-    OPENAI = "gpt_4o"  # Substituído hífen por sublinhado
-    GEMINI = "gemini_2_5_flash"
-    GROK = "llama_3_3_70b_versatile"
+    OPENAI = "gpt-4o" 
+    GEMINI = "gemini-2-5-flash"
+    GROK = "llama-3-3-70b-versatile"
 
 class MessageRole(str, Enum):
     """definir papeis possiveis pra uma mensagem com IA"""
@@ -32,7 +32,7 @@ class ChatMessage(BaseModel):
     
 class AIrequest(BaseModel):
     """Modelo de requisicao para a IA"""
-    model: ModelType.OPENAI
+    model: ModelType  # Corrigido para usar o Enum completo
     messages: List[ChatMessage]
     temperature: float = Field(0.7, ge=0.0, le=1.0)
     max_tokens: Optional[int] = Field(None, ge=1, le=4000)
@@ -40,7 +40,7 @@ class AIrequest(BaseModel):
     class Config:
         schema_extra = {
         "example": {
-            "model": "gtp-4o",
+            "model": "gpt-4o",
             "messages": [
                 {
                     "role": "user",
